@@ -60,7 +60,7 @@ const ScrollFloat = ({
           scroller,
           start: scrollStart,
           end: scrollEnd,
-          scrub: true
+          scrub: 0.2 // less frequent updates for smoother scroll
         },
       }
     );

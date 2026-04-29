@@ -1,11 +1,7 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-
-// Lazy load Spline for better performance
-const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 // =================== CONFIG ===================
 const GOOGLE_FORM_ACTION =
@@ -22,12 +18,6 @@ const ContactSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
-
-  // Intersection observer for Spline
-  const { ref: splineRef, inView: splineInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
@@ -70,89 +60,91 @@ const ContactSection = () => {
 
   return (
     <>
-      <section id="contact" className="relative py-20 lg:py-32 overflow-hidden z-30">
+      <section
+        id="contact"
+        className="relative py-6 lg:pt-32 lg:py-12 z-30" /* reduced vertical padding, removed mt */
+      >
         <motion.h1
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="text-5xl sm:text-6xl font-bold text-center text-white mb-24"
+          className="text-4xl sm:text-5xl font-bold text-center text-white "
         >
           Contact
         </motion.h1>
 
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
-          {/* 3D Model */}
-          <motion.div
-            ref={splineRef}
-            initial={{ opacity: 0, x: -50 }}
-            animate={splineInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="w-[600px] h-[300px] md:w-[800px] md:h-[600px] flex justify-center items-center pb-12 brightness-200"
-          >
-            {splineInView && (
-              
-                <div className="relative w-full h-[600px] max-w-[900px] scale-[.62] md:scale-110 brightness-150">
-                  <Spline scene="https://prod.spline.design/6P1YosPN3KBSAPDL/scene.splinecode" />
-                </div>
-              
-            )}
-          </motion.div>
+        {/* Container: centered and compact */}
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20">
+          {/* LEFT SIDE — IMAGE (limited height so it won't push things down) */}
+          <div className="w-full lg:w-1/2 flex justify-center items-center lg:pr-28">
+            <img
+              src="/images/about.png"
+              alt="Developer Illustration"
+              className="w-[370px] sm:w-[420px] lg:w-[650px] object-contain drop-shadow-2xl select-none max-h-[60vh]"
+            />
+          </div>
 
-          {/* Contact Card */}
+          {/* RIGHT SIDE — BIGGER SQUARE CARD */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 sm:p-10 shadow-2xl hover:shadow-blue-500/20 transition-shadow mt-12 lg:mt-0"
+            className="w-full lg:w-[480px] bg-white/8 backdrop-blur-lg border border-white/10 rounded-2xl px-6 py-8 sm:py-10 shadow-2xl hover:shadow-blue-500/20 transition-shadow flex flex-col justify-center"
           >
-            <h2 className="text-3xl font-bold text-white">Open to Work</h2>
-            <p className="text-gray-300 mt-3 mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Open to Work
+            </h2>
+
+            <p className="text-gray-300 text-base leading-relaxed mb-6">
               I’m a passionate developer eager to bring my skills to a dynamic team.
-              If you’re looking for a dedicated and creative mind, let’s connect!
+              If you’re looking for a dedicated and creative mind, let's connect!
             </p>
-            <button
-              onClick={handleOpenModal}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition"
-            >
-              <HiOutlineMail className="text-xl" />
-              Send a Message
-            </button>
+
+            <div className="mt-2">
+              <button
+                onClick={handleOpenModal}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold py-3 px-5 rounded-lg hover:opacity-95 transition"
+              >
+                <HiOutlineMail className="text-lg" />
+                Send a Message
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Modal */}
+      {/* MODAL */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-30"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50"
             onClick={handleCloseModal}
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl w-full max-w-lg p-6 sm:p-8 rounded-2xl"
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              className="relative bg-white/8 backdrop-blur-lg border border-white/10 shadow-2xl w-full max-w-lg p-5 sm:p-6 rounded-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={handleCloseModal}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+                className="absolute top-3 right-3 text-gray-300 hover:text-white text-2xl"
               >
                 <IoClose />
               </button>
 
               <motion.h3
-                className="text-2xl font-bold text-white mb-8"
-                initial={{ opacity: 0, y: 30 }}
+                className="text-xl sm:text-2xl font-bold text-white mb-4"
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.38 }}
               >
                 Contact Me
               </motion.h3>
@@ -162,38 +154,41 @@ const ContactSection = () => {
                   ✅ Message sent successfully!
                 </p>
               ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-6">
+                <form onSubmit={handleFormSubmit} className="space-y-3">
                   <div>
-                    <label className="block text-sm text-gray-300 mb-2">Name</label>
+                    <label className="block text-sm text-gray-300 mb-1">Name</label>
                     <input
                       type="text"
                       name="name"
                       required
-                      className="w-full bg-black/40 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 outline-none transition"
+                      className="w-full bg-black/40 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm text-gray-300 mb-2">Email</label>
+                    <label className="block text-sm text-gray-300 mb-1">Email</label>
                     <input
                       type="email"
                       name="email"
                       required
-                      className="w-full bg-black/40 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 outline-none transition"
+                      className="w-full bg-black/40 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm text-gray-300 mb-2">Message</label>
+                    <label className="block text-sm text-gray-300 mb-1">Message</label>
                     <textarea
                       name="message"
                       rows="4"
                       required
-                      className="w-full bg-black/40 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 outline-none transition"
+                      className="w-full bg-black/40 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2"
                     ></textarea>
                   </div>
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold py-3 rounded-lg hover:opacity-90 transition"
+                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-black font-semibold py-3 rounded-lg"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
