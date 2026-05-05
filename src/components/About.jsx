@@ -5,7 +5,7 @@ const About = () => {
   const sectionRef = useRef(null);
  
   const handleResumeClick = () => {
-    window.open("/kenithleon_resume.pdf (1).pdf", "_blank");
+    window.open("/kenithleon_resume.pdf", "_blank");
   };
 
   return (
@@ -67,12 +67,9 @@ const About = () => {
           </div>
 
           <p className="text-base sm:text-lg leading-relaxed text-justify mb-8 text-white">
-            Passionate web developer skilled in HTML, Tailwind CSS, JavaScript,
-            and React, with basic UI/UX knowledge in clean layouts, simple
-            navigation, and accessible design. Dedicated to creating responsive,
-            user-friendly web applications and eager to grow into full-stack
-            development while continuously learning and contributing to impactful
-            projects.
+            Full Stack Developer specializing in the MERN stack, with hands-on experience building and deploying real-world web applications. I focus on creating scalable backends, responsive user interfaces, and seamless user experiences.
+
+I’ve developed projects like a full-featured e-commerce platform with payment integration and a machine learning model for cyberbullying detection achieving 84.86% accuracy. I enjoy solving real-world problems through clean, efficient code and continuously expanding my skills in both full-stack development and machine learning.
           </p>
 
           <motion.button

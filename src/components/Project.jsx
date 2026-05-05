@@ -8,8 +8,16 @@ const projectsData = [
     date: '2025',
     tech: [],
     source: '',
-    live: 'https://yourdomain.com',
+    live: 'https://kenith-leon-portfolio-2ckb.vercel.app/',
     video: '/video/1126.mkv',
+  },
+  {
+    title: 'Kickless Zone E-commerce MERN Application',
+    date: '2026',
+    tech: [],
+    source: '',
+    live: 'https://kz-do5h.vercel.app/',
+    video: '/public/video/0504.mp4',
   },
   {
     title: 'Cyberbullying Detection System',
@@ -17,7 +25,7 @@ const projectsData = [
     tech: [],
     source: '',
     live: null,
-    video: '/video/rp.mp4',
+    video: '/public/video/rp.mp4',
   },
   {
     title: 'Art Gallery Management System',
@@ -25,7 +33,7 @@ const projectsData = [
     tech: [],
     source: 'https://github.com/kenithleon/art_gallery.git',
     live: null,
-    video: '/video/agms.mp4',
+    image: '/public/video/brain-art-min.webp',
   },
 ];
 

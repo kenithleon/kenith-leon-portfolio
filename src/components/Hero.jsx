@@ -19,9 +19,7 @@ const SocialIcons = memo(() => (
       <li className="hover:scale-125 transition-transform duration-300">
         <a href="https://www.linkedin.com/in/kenith-leon/"><FaLinkedin /></a>
       </li>
-      <li className="hover:scale-125 transition-transform duration-300">
-        <a href="https://www.behance.net/kenithleon"><FaBehanceSquare /></a>
-      </li>
+     
     </ul>
   </div>
 ));

@@ -12,27 +12,27 @@ const certificates = [
 ];
 
 const CertificatesPage = () => (
-  <section className="min-h-screen bg-black text-white py-16 px-6">
-    <div className="max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-cyan-400 mb-12 text-center">
+  <section className="min-h-screen bg-black text-white py-16 px-6 z-50">
+    <div className="max-w-7xl mx-auto z-50">
+      <h2 className="text-4xl font-bold text-cyan-400 mb-12 text-center z-50">
         All Certificates
       </h2>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 z-50">
         {certificates.map((cert, i) => (
           <a
             key={i}
             href={cert.file}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group"
+            className="block group z-50"
           >
-            <div className="bg-gray-900 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/50">
+            <div className="bg-gray-900 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/50 z-50">
               {/* object-contain prevents crop and keeps full certificate visible */}
               <img
                 src={cert.image}
                 alt={`Certificate ${i + 1}`}
-                className="w-full h-80 object-contain bg-black"
+                className="w-full h-80 object-contain bg-black z-50"
               />
             </div>
           </a>
