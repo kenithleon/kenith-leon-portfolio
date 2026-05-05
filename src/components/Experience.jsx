@@ -33,8 +33,8 @@ const toolsIcons = [
 // --- ALL Certificates ---
 const allCertificates = [
   { file: "/certificate/031.pdf", image: "/certificate/031_page-0001.jpg" },
-  { file: "/certificate/frontend_developer_react_certificate.pdf", image: "/public/certificate/frontend_developer_react certificate.webp" },
-  { file: "/certificate/Kenith_Leon_Bernard_4MT23MC031.pdf", image: "/public/certificate/hzmoNKtzvAzXsEqx8_Accenture North America_YTTjLceSK7M2Kywon_1725379978253_completion_certificate (1)_page-0001.jpg" },
+  { file: "/certificate/frontend_developer_react_certificate.pdf", image: "/certificate/frontend_developer_react certificate.webp" },
+  { file: "/certificate/Kenith_Leon_Bernard_4MT23MC031.pdf", image: "/certificate/hzmoNKtzvAzXsEqx8_Accenture North America_YTTjLceSK7M2Kywon_1725379978253_completion_certificate (1)_page-0001.jpg" },
   { file: "/certificate/cert4.pdf", image: "/certificate/cert4.jpg" },
 ];
 
