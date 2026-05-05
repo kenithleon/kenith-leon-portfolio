@@ -74,7 +74,7 @@ const Navbar = ({ setIsOpen, isOpen }) => {
         <div className="hidden md:flex space-x-6 text-lg font-medium gap-10">
           <a href="#hero" className="hover:text-cyan-400 transition" onClick={(e) => handleNavClick(e, "#hero")}>Home</a>
           <a href="#about" className="hover:text-cyan-400 transition" onClick={(e) => handleNavClick(e, "#about")}>About</a>
-          <a href="#skills" className="hover:text-cyan-400 transition" onClick={(e) => handleNavClick(e, "#skills")}>Skills</a>
+          <a href="#skills" className="hover:text-cyan-400 transition" onClick={(e) => handleNavClick(e, "#experience")}>Skills</a>
           <a href="#project" className="hover:text-cyan-400 transition" onClick={(e) => handleNavClick(e, "#project")}>Project</a>
           <a href="#contact" className="hover:text-cyan-400 transition" onClick={(e) => handleNavClick(e, "#contact")}>Contact</a>
         </div>
