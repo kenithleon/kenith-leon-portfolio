@@ -3,10 +3,6 @@ import { motion } from "framer-motion";
 
 const About = () => {
   const sectionRef = useRef(null);
- 
-  const handleResumeClick = () => {
-    window.open("/public/Kenith-Leon-resume.pdf", "_blank");
-  };
 
   return (
     <section id="about" ref={sectionRef} className="relative scroll-mt-20">
@@ -67,24 +63,38 @@ const About = () => {
           </div>
 
           <p className="text-base sm:text-lg leading-relaxed text-justify mb-8 text-white">
-            Full Stack Developer specializing in the MERN stack, with hands-on experience building and deploying real-world web applications. I focus on creating scalable backends, responsive user interfaces, and seamless user experiences.
+            Full Stack Developer specializing in the MERN stack, with hands-on
+            experience building and deploying real-world web applications. I
+            focus on creating scalable backends, responsive user interfaces, and
+            seamless user experiences.
 
-I’ve developed projects like a full-featured e-commerce platform with payment integration and a machine learning model for cyberbullying detection achieving 84.86% accuracy. I enjoy solving real-world problems through clean, efficient code and continuously expanding my skills in both full-stack development and machine learning.
+            I’ve developed projects like a full-featured e-commerce platform
+            with payment integration and a machine learning model for
+            cyberbullying detection achieving 84.86% accuracy. I enjoy solving
+            real-world problems through clean, efficient code and continuously
+            expanding my skills in both full-stack development and machine
+            learning.
           </p>
 
-          <motion.button
-            onClick={handleResumeClick}
-            whileTap={{ scale: 0.95 }}
-            className="
-              px-8 py-3 font-semibold text-lg text-white
-              bg-black/80 border border-white/20
-              rounded-full shadow-lg duration-300
-              hover:bg-black hover:shadow-cyan-500/50
-              focus:outline-none focus:ring-2 focus:ring-cyan-400
-            "
+          {/* ---- Resume Button ---- */}
+          <a
+            href="/public/Kenith-Leon-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            📄 View Resume
-          </motion.button>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="
+                px-8 py-3 font-semibold text-lg text-white
+                bg-black/80 border border-white/20
+                rounded-full shadow-lg duration-300
+                hover:bg-black hover:shadow-cyan-500/50
+                focus:outline-none focus:ring-2 focus:ring-cyan-400
+              "
+            >
+              📄 View Resume
+            </motion.button>
+          </a>
         </div>
 
         {/* ----- Desktop image (shows only on lg+) ----- */}
@@ -105,79 +115,88 @@ I’ve developed projects like a full-featured e-commerce platform with payment 
           />
         </div>
       </motion.div>
-h
 
-{/* ---- Education Section ---- */}
-<motion.div
-  className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 pb-20"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
->
-  <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-14 text-white">
-    🎓 My Education
-  </h2>
+      {/* ---- Education Section ---- */}
+      <motion.div
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 pb-20"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-14 text-white">
+          🎓 My Education
+        </h2>
 
-  {/* Card Grid */}
-  <div className="grid gap-6 sm:gap-10 md:grid-cols-2">
-    {/* MCA */}
-    <motion.div
-      whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="relative group bg-black/70 border border-cyan-400/30 
-                 rounded-3xl shadow-lg p-6 sm:p-8 
-                 hover:shadow-cyan-500/50 
-                 transition-all duration-300"
-    >
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/30 to-cyan-700/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
+        {/* Card Grid */}
+        <div className="grid gap-6 sm:gap-10 md:grid-cols-2">
+          {/* MCA */}
+          <motion.div
+            whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="relative group bg-black/70 border border-cyan-400/30 
+                       rounded-3xl shadow-lg p-6 sm:p-8 
+                       hover:shadow-cyan-500/50 
+                       transition-all duration-300"
+          >
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/30 to-cyan-700/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
 
-      <div className="relative z-10 flex flex-col items-center text-center space-y-3 sm:space-y-4">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full 
-                        bg-gradient-to-br from-cyan-500 to-cyan-700 shadow-lg text-2xl sm:text-3xl">
-          🎓
+            <div className="relative z-10 flex flex-col items-center text-center space-y-3 sm:space-y-4">
+              <div
+                className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full 
+                              bg-gradient-to-br from-cyan-500 to-cyan-700 shadow-lg text-2xl sm:text-3xl"
+              >
+                🎓
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Master of Computer Application
+              </h3>
+
+              <p className="text-white/80 text-sm sm:text-base text-center">
+                Mangalore Institute Of Technology & Engineering, Moodabidri
+              </p>
+
+              <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-cyan-500/20 text-cyan-400 rounded-full">
+                Feb 2024 – Nov 2025
+              </span>
+            </div>
+          </motion.div>
+
+          {/* BCA */}
+          <motion.div
+            whileHover={{ scale: 1.05, rotateX: -5, rotateY: 5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="relative group bg-black/70 border border-cyan-400/30 
+                       rounded-3xl shadow-lg p-6 sm:p-8 
+                       hover:shadow-cyan-500/50 
+                       transition-all duration-300"
+          >
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/30 to-cyan-700/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
+
+            <div className="relative z-10 flex flex-col items-center text-center space-y-3 sm:space-y-4">
+              <div
+                className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full 
+                              bg-gradient-to-br from-cyan-500 to-cyan-700 shadow-lg text-2xl sm:text-3xl"
+              >
+                🏫
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Bachelor of Computer Application
+              </h3>
+
+              <p className="text-white/80 text-sm sm:text-base text-center">
+                Milagres College, Kallianpur, Udupi
+              </p>
+
+              <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-cyan-500/20 text-cyan-400 rounded-full">
+                Sep 2020 – Aug 2023
+              </span>
+            </div>
+          </motion.div>
         </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-white">Master of Computer Application</h3>
-        <p className="text-white/80 text-sm sm:text-base text-center">
-          Mangalore Institute Of Technology & Engineering, Moodabidri
-        </p>
-        <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-cyan-500/20 text-cyan-400 rounded-full">
-          Feb 2024 – Nov 2025
-        </span>
-      </div>
-    </motion.div>
-
-    {/* BCA */}
-    <motion.div
-      whileHover={{ scale: 1.05, rotateX: -5, rotateY: 5 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="relative group bg-black/70 border border-cyan-400/30 
-                 rounded-3xl shadow-lg p-6 sm:p-8 
-                 hover:shadow-cyan-500/50 
-                 transition-all duration-300"
-    >
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/30 to-cyan-700/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
-
-      <div className="relative z-10 flex flex-col items-center text-center space-y-3 sm:space-y-4">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full 
-                        bg-gradient-to-br from-cyan-500 to-cyan-700 shadow-lg text-2xl sm:text-3xl">
-          🏫
-        </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-white">Bachelor of Computer Application</h3>
-        <p className="text-white/80 text-sm sm:text-base text-center">
-          Milagres College, Kallianpur, Udupi
-        </p>
-        <span className="px-3 py-1 text-xs sm:text-sm font-medium bg-cyan-500/20 text-cyan-400 rounded-full">
-          Sep 2020 – Aug 2023
-        </span>
-      </div>
-    </motion.div>
-  </div>
-</motion.div>
-
-
-
-
+      </motion.div>
     </section>
   );
 };
