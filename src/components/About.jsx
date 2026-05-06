@@ -78,7 +78,7 @@ const About = () => {
 
           {/* ---- Resume Button ---- */}
           <a
-            href="/public/kenith-leon.pdf.pdf"
+            href="/public/kenith-leon.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
