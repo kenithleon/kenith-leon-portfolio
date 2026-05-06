@@ -5,7 +5,7 @@ const About = () => {
   const sectionRef = useRef(null);
  
   const handleResumeClick = () => {
-    window.open("/kenithleon_resume.pdf", "_blank");
+    window.open("/Kenith Leon resume.pdf", "_blank");
   };
 
   return (
@@ -105,7 +105,7 @@ I’ve developed projects like a full-featured e-commerce platform with payment 
           />
         </div>
       </motion.div>
-
+h
 
 {/* ---- Education Section ---- */}
 <motion.div
