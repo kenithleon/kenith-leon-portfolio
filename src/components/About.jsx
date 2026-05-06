@@ -5,7 +5,7 @@ const About = () => {
   const sectionRef = useRef(null);
  
   const handleResumeClick = () => {
-    window.open("/Kenith Leon resume.pdf", "_blank");
+    window.open("/public/Kenith-Leon-resume.pdf", "_blank");
   };
 
   return (
